@@ -1,0 +1,664 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>SIH-Problem Statements</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a1337bff-cf69-48f2-9ee9-4a8797f82bb9" class="page sans"><header><h1 class="page-title">SIH-Problem Statements</h1></header><div class="page-body"><h1 id="0f61ad6f-1c69-4c78-af86-49064644ee18" class="">1. Video Classification of missions</h1><p id="b4010744-5c5c-4014-a3d4-2cee4eebec65" class="">SS585</p><p id="32247100-7fbd-422b-b472-331de44b8aae" class="">Video documentaries of various ISRO missions and programs are available. To categorize the all-video programs, generation &amp; verification of huge amount of metadata generation need to be done. With current Deep learning methods-based development in field of Computer vision and Natural Language Processing this task of video metadata generation is now days automated. Given Video programs, process for objects, text, speech recognition, Named Entity recognition etc. to classify the videos in different genres like launch programs, interviews, educational programs, outdoor shots, public shots, traffic etc.</p><h2 id="d59b405b-70d8-4033-b69f-ea6ff704bdca" class="">2. Audio video sychronization</h2><p id="e7cbbced-b921-4ad2-9b70-dd099de9e0bd" class="">SS615</p><p id="cd9c2efc-ec81-4038-a2d2-d10c8f8f1f7f" class="">Content adaptive speech mixing and audio-video synchronization is a challenge task in building audio-video conference system for Gaganyaan Project. To achieve clear and distinguishable audio, the audio mixing should be done based on adaptive acoustic modeling. Characteristics of speech such as pitch, formant frequencies, and segmental durations related to specific age group or gender should be adapted. The sampled speech signal at 8 KHz (16 bit linear PCM) from multiple sources should be mixed with appropriate adaptive acoustic modeling to achieve the desired outcome sound quality. The mixing algorithm should address the problem of scaling, delay, echo, cabin noise etc. Another task includes that any individual speech ( from a selected input source) should be multiplexed along with H.264 compressed video (Max. bit rate 1Mbps) for generating a synchronized and fixed data rate output data stream.</p><h1 id="554ec510-af62-4b43-9fb9-7d5714bc8db6" class="">3. high accuracy navigation system</h1><p id="6608b491-0a69-43c7-aebe-0463635b0132" class="">SS613</p><p id="bf58735b-2bd1-4a87-9df5-06e5154c92a2" class="">Realization of high accuracy navigation system using NavIC/GNSS and other augmentation systems (i.e. integrating optical cameras, INS, odometer, radars); which can provide decimeter level positioning and manage lane-level navigation.</p><p id="4c34ac05-aed1-46b7-9213-be52e776de34" class="">decimeter: 10 cm</p><p id="54461d69-e5bc-480f-bda4-a819736f511e" class="">accuracy of NavIC: 1mtr</p><h1 id="87f97242-64ad-4aa3-bc18-005a5e18f1b2" class="">4. Find objects using CNNs</h1><p id="1652ff0a-e711-49c7-b9c7-cf6778a7be14" class="">SS586</p><p id="e2c39f6e-23e5-4e13-95ee-f54129efcd9b" class="">Discover the objects and features in the image using Explainable AI Techniques. Field Data is an incredible source of information to validate earth observation studies. Recently with the success of Convolution Neural Networks in Feature Extraction from Satellite Images, there is a need to standardize and generate training datasets. This Field Datasets will be of high value in terms of the research and development in Space Applications. It is felt that catalogue of field data and AI based solution to discover the objects or features will be a milestone during India’s Self Reliance Journey in Geospatial Sector.</p><h1 id="c8ddeb63-1d03-473c-b5a1-02c3436e2db9" class="">5. Cyclone intensity prediction</h1><p id="69ad8293-9d52-41a8-b958-4ddc9bc72e95" class="">SS591</p><p id="2ef5d11a-5299-453a-84c7-192fbb3e1d00" class="">Development of a deep Convolutional Neural Network (CNN) for Tropical Cyclone intensity estimation using half-hourly INSAT-3D IR Images and development of a web application for visualization of the imagery. INSAT3D/3DR observations are available at every 15-minute interval and these observations are very useful in understanding the instantaneous structural changes during evolution, intensification, and landfall of Tropical Cyclones. Datasets of Cyclones captured by INSAT-3D over the Indian Oceans are available since 2014. These datasets can be used for training and testing of the Model. Traditional methods for Intensity estimation require accurate center determination for intensity estimation. Development of CNN based model for intensity estimation will be very useful during the initial stage of cyclone formation when determination of accurate center becomes difficult.</p><h1 id="9e297c71-7c28-4cf2-9861-79ebe69c5ba8" class="">6. Indoor - Outdoor GPS</h1><p id="1ddd6cb2-b9af-4232-9363-0b5ca3e938b5" class="">SS592</p><p id="6efaa41a-19c0-4327-be44-392c6fd64029" class="">One of the major uses of Navigation based application is Location-Based Services (LBS) which constitutes a significant portion of the navigation application usage. The availability of location-sensitive smartphones, with wireless broadband high-speed connections, has made low-cost applications available to a huge audience and there exists a lot of innovation in designing new type of technology and applications using these devices. Typically, it is seen that outdoor positioning is generally GPS/GNSS based. However, indoor positioning is generally based on WLAN technology. The primary reason is that GPS generally does not work for indoor applications. Uninterrupted good accuracy positioning needs thinking in the fusion of multiple technologies (Smart Phone Sensors, Wi-Fi, BLE beacons, GNSS, Dead Reckoning etc.) to deliver seamless out-door and indoor positioning experience. To design/develop new ideas and mobile app which makes use of these technologies (and even other signals of opportunity) to provide seamless indoor-outdoor positioning and provide innovative location-based services.</p><h1 id="9ac9916d-2439-42d7-82fa-41ab9d53188e" class="">7. Image Stiching Algorithm</h1><p id="c7317938-e709-4d9c-95e5-7116505391cd" class="">SS607</p><p id="c4cae83d-33cc-4e98-8fed-d0c87a45c83e" class="">Background: High resolution imaging satellites have limited swath and images from adjacent passes are stitched together, However, theme images may have different illumination and atmospheric conditions leading to a visible differences at the border of images. The goal of this problem statement is to develop a fully automated algorithm to automatically stitch adjacent ( multiple ) satellite images without human intervention to create a seamless mosaic. The algorithm needs to be fast enough for on-the-fly stitching for web based visualization.</p><h1 id="13272847-92d2-4cb0-9db5-7553a3257b79" class="">8. Generating High quality DEMs</h1><p id="c88362f9-90fb-4a25-b3e7-a4104be41254" class="">SS600</p><p id="18df15da-842a-4a38-8786-80b37154b4a6" class="">DEMs could be produced from different sources. Satellite stereoscopy has its own advantages over other techniques. However, there are certain theoretical limitations in producing DEMs from a certain resolution stereo data. Here the idea is to train a machine with some super resolution DEM samples and use the model for generating super resolution elsewhere.</p><p id="35cdcc28-4935-427d-8e2d-2b68fed86258" class="">DEM- digital elevation model</p><figure id="ba182b3f-79aa-4267-87a4-f4c172bddac8" class="image"><a href="SIH-Proble%20ba182/Untitled.png"><img style="width:640px" src="SIH-Proble%20ba182/Untitled.png"/></a></figure><h1 id="1d8d6945-d164-42d7-a892-c0d87d67ca7b" class="">9. web GIS NLP search</h1><p id="93f8dc4c-c8a3-482e-afbf-12d33304e127" class="">SS598</p><p id="1917d517-733a-45f3-90f5-1caac79ec215" class="">To design and develop a Natural language-based search system for searching about attribute/information about datasets/features in a web GIS using open source tools and libraries.</p><figure id="c8c51981-1e09-4d67-a124-70d91bd792be"><div class="source"><a href="http://www.webgis.com/">http://www.webgis.com/</a></div></figure><h1 id="0ebeacb8-0305-48c6-bcf3-b7c0b2e688f1" class="">10. Road Quality Management</h1><p id="ce8ab1c3-2596-4bfe-b4a2-aaefb99e1fe9" class="">NR1177</p><p id="1d3458bb-5d24-4b2e-8d00-cfeee0655107" class="">Road are continuously constructed across various locations all over the country. The present system of monitoring the construction process and health is manually and thus becomes tedious and physically impossible many a time. Roads thus become due for repairs / maintenance prematurely due to various reasons. There is a requirement to devise a smart process may be by using smart technology to monitor the process at the time of construction, embedding sensors during road construction, use of smart imaging technology to assess condition using drones, smart devices installed on remote operated / autonomous vehicles for overseeing during construction, etc. There is an immediate need to identify a viable solution to increase the longevity of roads and prevent premature failure.</p><h1 id="e0a7e547-7c17-4dad-b47c-ef1814d1dd01" class="">11. Electrical Grid Management</h1><p id="331f6c40-22fb-437f-ad10-dadfa9317fa4" class="">NR1176</p><p id="35591cbf-fd0e-41c5-b4b7-6e91abf675f5" class="">Electrical grid consists of cables running through the length and breadth of the country across various terrains. Installation of cables and supporting poles had commenced over many decades now. Further a large percentage of cables pass though wooded areas and inhospitable terrains. There is thus a need to monitor health and condition of cables/poles on a real time basis so as to prevent failures and consequent outages. There thus a requirement to devise suitable technology solutions for realtime assessment of condition. Further smart solution for cable fault tracing in inhospitable terrains would help reducing downtime due to outages.</p><h1 id="218ac2d4-f631-415d-a5c3-ffb27a3d4c30" class="">12. AI based lawyer</h1><p id="f59f3324-aeb4-4889-9d03-857fdcacc771" class="">NR1174</p><p id="b07ad421-5504-4132-9135-82515cfad3fc" class="">There is a large dependency of (law based) cases in our country. The time taken runs into years more as a norm rather than an exception. Majority of the cases would be os a repeated nature, with previous decisions available for guidance. Creation of database of all judgements in various cases and creation of a smart legal aid using AI / block chain would help in assessing the condition of each petition and thus may enable reduction in timelines. Any other technology based solution to reduce pendency timelines may also be identified. Technology could also be available to advise common citizens so as to enable them to understand where they stand before they file their petitions. It should also be able to predict the likely timelines for a case to see its final judgment, when petitioned in a court of law.</p><h1 id="e7b06e9d-dc07-4548-a4af-aae7b7ac1328" class="">13. PhD Plagarism checker</h1><p id="6c98331c-e28f-4520-b693-424abc073f39" class="">DK734</p><p id="72792da4-1964-4801-963a-21b156361d2f" class="">Summary: Every year approx. 5000 post graduate ayush students submit MD/PHD thesis to their respective universities. Problem statement – though thesis of some universities are being uploaded on shodhganga, the thesis are not detected in plagiarism software. Hence, there is no mechanism to detect plagiarism in thesis submitted in MD/PHD Thesis. Objective: Solution: A universal database for MD/PHD thesis submitted under Ayush system of medicine which supports plagiarism detection in thesis. With user side as well as admin side. It should automatically check the plagiarism from standard plagiarism checker plugin integrated in the system once the user or admin submit the thesis in the platform and generate the plagiarism report. It only allows submission if it pass the plagiarism(Less than 5%) test otherwise platform should deny the submission.”</p><h1 id="c3af7323-ba36-48b4-b2da-1d950e8479fe" class="">14. Speech synthesis </h1><p id="ff0fd378-9134-4a04-b0cc-76d4173be22e" class="">GM747</p><p id="11d28566-6c11-46dc-bf94-43a4f13fd3c2" class="">Background: There are many events in the past where we don&#x27;t find audio visual recordings in the archives. Many notable personalities from India have delivered iconic speeches in the past which are not recorded. These famous speeches by notable individuals will be synthesized from the transcript available. Their speeches will be presented through a three-dimensional hologram to provide people with a realistic experience. Summary: To develop a speech synthesis algorithm to bring historic speeches delivered by legendary personalities in the past back to life. Objective: ? These holograms can be shown in the Museum ? To recreate History which is not being recorded.”</p><h1 id="90a9ad70-c917-42dc-8c22-ef00f4a56ac7" class="">15. School counselling chatbot</h1><p id="3999fbc0-5101-42b3-a2c1-4091be783ca6" class="">RK788</p><p id="5ca0fe56-9d84-47ea-9c09-c9c083d46ac3" class="">Summary: Every child at secondary level (grades 9 to 12) needs to have access to the existing choices for career to enable them to make study choices What subjects will lead to what career paths, what are the Higher Educational Institutions for study for pursuing such studies, what are the entrance exams required, what aptitude tests are available, etc, how to access them etc. are important information for making such choices Sometimes children like to chat about their fears regarding their choices. Parents may also have several queries. They will need access to a counsellor either through chatbot or any other AI-based solution An App based comprehensive solution is required encompassing all these issues.”</p><h1 id="eebd2439-1c1b-4f06-8292-c22892ed4eb1" class="">16. EV charging stations</h1><p id="bef3d3f7-d2f0-406e-ad80-729e8fc18f5a" class="">BV806</p><p id="8a041b72-135d-451c-929b-6f970f52ef88" class="">It’s hard to pinpoint the invention of the electric car to one inventor or country. Instead it was a series of breakthroughs -- from the battery to the electric motor -- in the 1800s that led to the first electric vehicle on the road. In the early part of the century, innovators in Hungary, the Netherlands and the United States -- including a blacksmith from Vermont -- began toying with the concept of a battery-powered vehicle and created some of the first small-scale electric cars. And while Robert Anderson, a British inventor, developed the first crude electric carriage around this same time, it wasn’t until the second half of the 19th century that French and English inventors built some of the first practical electric cars. Here in the U.S., the first successful electric car made its debut around 1890 thanks to William Morrison, a chemist who lived in Des Moines, Iowa. His six-passenger vehicle capable of a top speed of 14 miles per hour was little more than an electrified wagon, but it helped spark interest in electric vehicles.Under the EV rollout plan the power ministry is targeting 4 billion plus population cities under the EV policy initiative. The success of EV adoption hinges upon successful deployment of EV charging infrastructure. Location analysis for EV charging stations helps optimize utilisation and maximize benefits that include the number of EVs in the area and grid infrastructure. The core of the problem is demand and supply.The objective is to develop a sharing charging model to solve the location problem for EV charging stations</p><h1 id="c3e793c2-2e25-4f74-a5b7-90b7a3b66abb" class="">17. Preventing Oil spills</h1><p id="e19fdb3e-b7b5-4a10-964f-a5455bb81d4a" class="">NK827</p><p id="fc0fd172-6478-45b8-a663-d6d58aa06ab5" class="">&quot;Indian and ASEAN countries are located on global oil takner oceanic superhighway. This route also has sensitive ecosystems such as coral reefs and seagrass meadows in the vicinity. The environmental impact of an oil spill from a tanker ship is well documented. Oil Spills do not occur instataneously. There are events e.g. machinary malfunction that lead to such disasters. Before a spill occurs the crew might be well aware of the challenging situation and often spend time in avoiding such an event. During such times, the ship movement behavior may change from its normal pattern i.e. travelling at a predicted speed towards the port of call. At present, however there is no mechanism that can look into such patterns and predict a potential spill event to mitigate it in timely manner. While the tankers have AIS and the systems are &#x27;on&#x27;, only predictive models can help flag unusual behavior that need to be monitored. An open-source based solution (R, QGIS w/ GRASS) could consist of a model that feeds on the tanker AIS data. AI/ML/NN (Artificial Intelligence / Machine Learning / Neural Network) based system can assess the fresh AIS data with the historical data of a) the given ship, b) the given type of cargo menifested and c) the given region to flag any pattern (ship course, speed etc) that is unusual. Such mechanism will help the monitoring agencies by narrowing down the region to utilize SAR (Synthetic Aperture Radar) data (satellite or drone based) and thus, can invoke faster mitigation response. Such a solution would cater to multiple of UN-SDGs and UNDOSSD objectives. SAR data from satellites such as Sentinnel, R codes from GitHub&quot; Data set- SAR data from satellites such as Sentinnel, R codes from GitHub</p><p id="6bf6474e-9c81-4720-9307-245439bb5654" class="">AIS- </p><figure id="5a5a13db-2e98-4ce0-9dce-7d65b155bf96"><div class="source"><a href="https://globalfishingwatch.org/faqs/what-is-ais/">https://globalfishingwatch.org/faqs/what-is-ais/</a></div></figure><p id="40d1a1c8-ef72-4834-8936-fd8739608e1f" class="">SAR - </p><figure id="8ce834a6-2e8c-4541-855d-7272102d3603"><a href="https://earthdata.nasa.gov/learn/backgrounders/what-is-sar" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">What is Synthetic Aperture Radar? | Earthdata</div><div class="bookmark-description">While most scientists using remote sensing are familiar with passive, optical images from the U.S. Geological Survey&#x27;s Landsat, NASA&#x27;s Moderate Resolution Imaging Spectroradiometer (MODIS), and the European Space Agency&#x27;s Sentinel-2, another type of remote sensing data is making waves: Synthetic Aperture Radar, or SAR.</div></div><div class="bookmark-href"><img src="https://earthdata.nasa.gov/favicon.ico?c003ee08-41e8-4cab-b3e1-45249beed48f" class="icon bookmark-icon"/>https://earthdata.nasa.gov/learn/backgrounders/what-is-sar</div></div><img src="https://cdn.earthdata.nasa.gov/conduit/upload/14124/SARticle_first-fig_redone-06.jpg" class="bookmark-image"/></a></figure><h1 id="6a8ad140-806c-46bf-a786-733af01f3765" class="">18. Unstructured data to structured data - Ministry of Electronics and Information Technology (MEITY).</h1><p id="ac86e3df-5f5d-4abb-b108-9799ad7fb970" class="">PK842</p><p id="5ee81955-0bae-4954-887c-99baadc136ba" class="">&quot;Every Machine Learning task requires structured data. It is the basic need to proceed with training and testing. The importance of structured data can be seen from the fact that models cannot be trained on unstructured data. Hence, it is a vital task in any machine learning, deep learning/AI problem. Raw data can correspond to any thing – text, images…. Labelling the data/structuring it requires precision as failure in doing so will result in wrong labels thus wrong results. Labelling the data/structuring the data is the most painful aspect for any machine learning engineer, automating this will solve a huge problem.There is a requirement of a an automation tool(Web,App,Standalone tool) which takes as input the unstructured data and as output generates the structured data. The below questions are the direct requirements to be fulfilled as part of the solution. 1. How can we convert, say 95% of unstructured data without any standard to structured data with standard through automated tool? 2. How can we have low code / no code solution in open source to prepare AI ready data? For example, there can be a python based tool which is a standalone tool, which takes as input the raw data and based upon users requirements, generates the structured data.”</p><h1 id="82aa2e9b-824a-4ae9-aca3-7b854f5bcef1" class="">19. Data base + fake information detector</h1><p id="fd17f1f2-a306-4680-8593-5a9e0fe851ca" class="">NS1224</p><p id="3f978dd2-c5d1-43df-9e20-d673bdd7e335" class="">An information database, carrying all laws, official documents, press releases, information disseminated by Government organizations on social media, and other real time Government related information may be developed. Parallely, a mechanism of tracking of false information going viral on social and online media, or that being published by digital news media organizations, may be monitored through the use of APIs of various social media platforms. An AI/ML based system may compare the mismatches between the official information, and the information being disseminated on social media. These mismatches may be flagged by the system, which upon vetting by a dedicated team of officials, may be flagged to senior levels in the concerned Ministries/Departments/Organizations of the Government of India for corrective action as may be deemed fit</p><h1 id="36beccb0-5ee2-493c-8fbc-d6a5406cfcad" class="">20. Anomalies in Networks </h1><p id="2b3d0093-4ce6-4237-8f4c-6bbc6af08692" class="">DR706</p><p id="f72aa2da-e07a-45ea-89fa-9b5c5c20cbf8" class="">Summary: Also called “Packet Sniffing”, network traffic analysis and monitoring is a process used to keep an eye on all incoming and outgoing traffic, network activity, and availability. It is used to detect anomalies, identifying operational issues, comparing real-time networks with historical data to identify potential threats and issues. For a project, you can analyze the data packets that are sent across the network. After analyzing these packets you can work on a report to give your insights, and if required, countermeasures if there is an anomaly. Objective: : We need a software in which using your networking skills you can find out such anomalies in the network also as an extension, you could also devise software that could identify if there is a traffic analyzer in the network by an external agent.</p><h1 id="4ca4f821-cc7f-4b3c-bd65-3448a48abf79" class="">21. UIDAI services booking system</h1><p id="f148d709-c9f2-42e3-8424-e4d1f00642d7" class="">PK835</p><p id="a491ff6f-e5d6-4edf-bf5c-d39c2fa82408" class="">Display the operator location on the map and refresh it Operator location to be shown only when he is logged to the platform and during his assigned working hours. Along with the location, additional attributes like free hour (slot) availability in the day must be shown. This information is to be used by the resident to book the operator for door step delivery of the Enrolment and update service. The platform must also provide means to call the appointment booking system of UIDAI to request services of the operator at an available time slot. The platform must also provide residents feedback for the operator. If the operator is already exhausted the slots or she/he has consumed his daily quota, further appointment booking should not be allowed. Her/His location may be shown in a different colour.</p><h1 id="f824ba8d-7abb-49fd-a88b-cb9452f80507" class="">22. Orginal scan checker</h1><p id="d7338da2-9f90-4f81-9c26-502ea58b4d82" class="">PK837</p><p id="1eaee9bb-1543-43ad-8ff5-8a2007be2e58" class="">Document scanning quality from readability perspective, Check of document for various image artefacts to verify that it’s a true copy of the original. Check of the document for essentials like photo, signature block, and date etc to ensure that it is not rejected in subsequent processes using ai/ml</p><h1 id="005aa2ad-20a5-4d8e-b44c-096c9a189e88" class="">23. Plagarism Checker in regional languages</h1><p id="1ec29c1e-2478-46d0-9f35-4cb8dee06e6c" class="">PK843</p><p id="fea03140-6b81-4813-86e1-9c77a53b239b" class="">1.How can digital means check plagiarism in Indian context?2. How can 
+exclusion and inclusion of content and context be handled considering 
+diversity of knowledge sources and limited internet content in Indian 
+regional languages? 3. How can we use this tool to check content match 
+against National Digital Library? For example, there can be a python 
+based tool which takes as input the content written by an individual and
+ as output shows the plagiarism report/content by comparing with 
+National Digital Library.</p></div></article></body></html>
